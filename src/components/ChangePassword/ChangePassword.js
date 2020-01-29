@@ -7,6 +7,8 @@ import messages from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+import Title from '../Home/Title'
+
 class ChangePassword extends Component {
   constructor () {
     super()
@@ -46,11 +48,11 @@ class ChangePassword extends Component {
 
   render () {
     const { oldPassword, newPassword } = this.state
-
+    const changepasswordSubtitle = <h2 className='center my-5'>Change Password</h2>
     return (
-      <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h3>Change Password</h3>
+      <div className="row background-color">
+        <div className="mx-auto">
+          { <Title title='Hajimeno POS' subtitle={changepasswordSubtitle} size='12' /> }
           <Form onSubmit={this.onChangePassword}>
             <Form.Group controlId="oldPassword">
               <Form.Label>Old password</Form.Label>
@@ -61,6 +63,7 @@ class ChangePassword extends Component {
                 type="password"
                 placeholder="Old Password"
                 onChange={this.handleChange}
+                className='form-background'
               />
             </Form.Group>
             <Form.Group controlId="newPassword">
@@ -72,11 +75,13 @@ class ChangePassword extends Component {
                 type="password"
                 placeholder="New Password"
                 onChange={this.handleChange}
+                className='form-background'
               />
             </Form.Group>
             <Button
-              variant="primary"
+              variant="dark"
               type="submit"
+              className='button'
             >
               Submit
             </Button>

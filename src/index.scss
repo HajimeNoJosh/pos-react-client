@@ -1,1 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
+@import './variables';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  color: $white;
+  text-shadow: 2px 2px $darkgray;
+}

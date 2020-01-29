@@ -1,0 +1,56 @@
+@import '../../variables';
+
+.background1 {
+  background: linear-gradient($rgba, $rgba), url('../../assets/homepageimage.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  height: 88%;
+}
+
+.background2 {
+  background: linear-gradient($rgba, $rgba), url('../../assets/homepageimage2.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+}
+
+.button {
+  align-items: center;
+  background-color: $white;
+  border-radius: 25px;
+  color: $black;
+  display: flex;
+  font-size: 25px;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  padding: 10px;
+  text-align: center;
+  text-shadow: 2px 2px $white;
+  width: 200px;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+    text-shadow: none;
+  }
+}
+
+.joining {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  margin-top: 100px;
+}
+
+.title-color {
+  color: $white;
+
+  &:hover {
+    border-bottom: 0;
+    color: $white;
+    text-decoration: none;
+  }
+}

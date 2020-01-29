@@ -7,6 +7,10 @@ import messages from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+import Title from '../Home/Title'
+
+import './SignUp.scss'
+
 class SignUp extends Component {
   constructor () {
     super()
@@ -49,11 +53,11 @@ class SignUp extends Component {
 
   render () {
     const { email, password, passwordConfirmation } = this.state
-
+    const signupSubtitle = <h2 className='center my-5'>Sign Up</h2>
     return (
-      <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h3>Sign Up</h3>
+      <div className="row background-color">
+        <div className="mx-auto">
+          { <Title title='Hajimeno POS' subtitle={signupSubtitle} size='12' /> }
           <Form onSubmit={this.onSignUp}>
             <Form.Group controlId="email">
               <Form.Label>Email address</Form.Label>
@@ -64,6 +68,7 @@ class SignUp extends Component {
                 value={email}
                 placeholder="Enter email"
                 onChange={this.handleChange}
+                className='form-background'
               />
             </Form.Group>
             <Form.Group controlId="password">
@@ -75,6 +80,7 @@ class SignUp extends Component {
                 type="password"
                 placeholder="Password"
                 onChange={this.handleChange}
+                className='form-background'
               />
             </Form.Group>
             <Form.Group controlId="passwordConfirmation">
@@ -86,11 +92,13 @@ class SignUp extends Component {
                 type="password"
                 placeholder="Confirm Password"
                 onChange={this.handleChange}
+                className='form-background'
               />
             </Form.Group>
             <Button
-              variant="primary"
+              variant="light"
               type="submit"
+              className='button'
             >
               Submit
             </Button>

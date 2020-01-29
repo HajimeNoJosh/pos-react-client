@@ -6,6 +6,8 @@ import messages from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import './SignIn.scss'
+import Title from '../Home/Title'
 
 class SignIn extends Component {
   constructor () {
@@ -47,13 +49,13 @@ class SignIn extends Component {
 
   render () {
     const { email, password } = this.state
-
+    const signinSubtitle = <h2 className='center my-5'>Sign In</h2>
     return (
-      <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h3>Sign In</h3>
+      <div className="row background-color">
+        <div className="mx-auto">
+          { <Title title='Hajimeno POS' subtitle={signinSubtitle} size='12' /> }
           <Form onSubmit={this.onSignIn}>
-            <Form.Group controlId="email">
+            <Form.Group controlId="email" >
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 required
@@ -62,6 +64,7 @@ class SignIn extends Component {
                 value={email}
                 placeholder="Enter email"
                 onChange={this.handleChange}
+                className='form-background'
               />
             </Form.Group>
             <Form.Group controlId="password">
@@ -73,11 +76,13 @@ class SignIn extends Component {
                 type="password"
                 placeholder="Password"
                 onChange={this.handleChange}
+                className='form-background'
               />
             </Form.Group>
             <Button
-              variant="primary"
+              variant="light"
               type="submit"
+              className='button'
             >
               Submit
             </Button>
