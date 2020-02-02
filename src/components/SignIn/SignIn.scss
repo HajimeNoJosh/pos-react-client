@@ -28,11 +28,16 @@
   }
 }
 
+.borderradius {
+  border-radius: 0;
+}
+
 
 .form-background {
   background-color: $darkgray;
   border: 0;
   border-bottom: 1px solid $white;
+  color: $white;
   width: 400px;
 }
 

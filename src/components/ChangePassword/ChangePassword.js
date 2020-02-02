@@ -48,15 +48,13 @@ class ChangePassword extends Component {
 
   render () {
     const { oldPassword, newPassword } = this.state
-    const changepasswordSubtitle = <h2 className='center my-5'>Change Password</h2>
     return (
       <div className="row background-color">
         <div className="mx-auto">
-          { <Title title='Hajimeno POS' subtitle={changepasswordSubtitle} size='12' /> }
+          { <Title title='Hajimeno POS' loginsubtitle='ChangePassword' link='true' size='12' /> }
           <Form onSubmit={this.onChangePassword}>
             <Form.Group controlId="oldPassword">
-              <Form.Label>Old password</Form.Label>
-              <Form.Control
+              <input
                 required
                 name="oldPassword"
                 value={oldPassword}
@@ -67,8 +65,7 @@ class ChangePassword extends Component {
               />
             </Form.Group>
             <Form.Group controlId="newPassword">
-              <Form.Label>New Password</Form.Label>
-              <Form.Control
+              <input
                 required
                 name="newPassword"
                 value={newPassword}

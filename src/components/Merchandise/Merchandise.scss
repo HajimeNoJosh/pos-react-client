@@ -1,0 +1,9 @@
+@import '../../variables';
+
+.merchandise-form-background {
+  background-color: $white;
+  border: 0;
+  border-bottom: 1px solid $darkgray;
+  color: $darkgray;
+  width: 400px;
+}

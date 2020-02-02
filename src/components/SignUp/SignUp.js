@@ -53,15 +53,13 @@ class SignUp extends Component {
 
   render () {
     const { email, password, passwordConfirmation } = this.state
-    const signupSubtitle = <h2 className='center my-5'>Sign Up</h2>
     return (
       <div className="row background-color">
         <div className="mx-auto">
-          { <Title title='Hajimeno POS' subtitle={signupSubtitle} size='12' /> }
+          { <Title title='Hajimeno POS' loginsubtitle='Sign Up' link='true' size='12' /> }
           <Form onSubmit={this.onSignUp}>
             <Form.Group controlId="email">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
+              <input
                 required
                 type="email"
                 name="email"
@@ -72,8 +70,7 @@ class SignUp extends Component {
               />
             </Form.Group>
             <Form.Group controlId="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
+              <input
                 required
                 name="password"
                 value={password}
@@ -84,8 +81,7 @@ class SignUp extends Component {
               />
             </Form.Group>
             <Form.Group controlId="passwordConfirmation">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control
+              <input
                 required
                 name="passwordConfirmation"
                 value={passwordConfirmation}
@@ -102,6 +98,7 @@ class SignUp extends Component {
             >
               Submit
             </Button>
+            <div>Already have an account? <a href='#sign-in' >Click here</a></div>
           </Form>
         </div>
       </div>

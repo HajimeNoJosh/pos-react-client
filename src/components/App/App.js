@@ -10,6 +10,7 @@ import SignOut from '../SignOut/SignOut'
 import Home from '../Home/Home'
 import Footer from '../Footer/Footer'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import Merchandise from '../Merchandise/Merchandise'
 import './App.scss'
 
 class App extends Component {
@@ -57,6 +58,9 @@ class App extends Component {
         )} />
         <AuthenticatedRoute user={user} path='/change-password' render={() => (
           <ChangePassword alert={this.alert} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} path='/merchandise' render={() => (
+          <Merchandise alert={this.alert} user={user} />
         )} />
         <Footer />
       </div>

@@ -1,12 +1,22 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import Dropdown from 'react-bootstrap/Dropdown'
+import SplitButton from 'react-bootstrap/SplitButton'
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import './Header.scss'
+import ModalButton from '../ModalTemplate/ModalButton'
+import AddMerchandiseInput from '../Merchandise/AddMerchandiseInput'
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="#change-password">Change Password</Nav.Link>
-    <Nav.Link href="#sign-out">Sign Out</Nav.Link>
+    <SplitButton id='Merchandise' href='#merchandise' bg='dark' variant='dark' title='Merchandise' className='user-options' >
+      { <ModalButton modaltitle='Add Merchandise' classNameButton='dropdown-item' title='Add Merchandise' location='merchandise'>
+        <AddMerchandiseInput token={this.token} />
+      </ModalButton>
+      }
+      <ModalButton classNameButton='dropdown-item' title='Search Merchandise' modaltitle='Search Merchandise' location='merchandise' />
+    </SplitButton>
   </Fragment>
 )
 
@@ -19,26 +29,31 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <Nav.Link href='#/'>Home</Nav.Link>
   </Fragment>
 )
 
-console.log(this.user)
-
-const Header = ({ user }) => (
-  <Navbar bg='dark' variant="dark" expand="md">
-    <Navbar.Brand>
-      Hajimeno POS
-    </Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="ml-auto">
-        { user && <span className="navbar-text mr-2">Welcome, {user.email}</span>}
-        { alwaysOptions }
-        { user ? authenticatedOptions : unauthenticatedOptions }
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
-)
+const Header = ({ user }) => {
+  return (
+    <Navbar bg='dark' variant="dark" expand="md">
+      <Navbar.Brand>
+        Hajimeno POS
+      </Navbar.Brand>
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          { alwaysOptions }
+          { user &&
+            <ButtonToolbar>
+              <SplitButton id='Merchandise' bg='dark' variant='dark' href='#/' className='user-options' title={'Welcome, ' + user.email } >
+                <Dropdown.Item href="#change-password">Change Password</Dropdown.Item>
+                <Dropdown.Item href="#sign-out">Sign Out</Dropdown.Item>
+              </SplitButton>
+            </ButtonToolbar>
+          }
+          { user ? authenticatedOptions : unauthenticatedOptions }
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  )
+}
 
 export default Header

@@ -1,0 +1,13 @@
+@import '../../variables';
+
+.dropdown-item {
+  color: $darkgray;
+  text-shadow: 2px 2px $white;
+  white-space: normal;
+
+  &:active {
+    color: $darkgray;
+    text-shadow: 2px 2px $white;
+    white-space: normal;
+  }
+}
