@@ -7,6 +7,7 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import './Header.scss'
 import ModalButton from '../ModalTemplate/ModalButton'
 import AddMerchandiseInput from '../Merchandise/AddMerchandiseInput'
+import SearchMerchandise from '../Merchandise/SearchMerchandise'
 
 const authenticatedOptions = (
   <Fragment>
@@ -15,7 +16,10 @@ const authenticatedOptions = (
         <AddMerchandiseInput token={this.token} />
       </ModalButton>
       }
-      <ModalButton classNameButton='dropdown-item' title='Search Merchandise' modaltitle='Search Merchandise' location='merchandise' />
+      { <ModalButton modaltitle='Search Merchandise' classNameButton='dropdown-item' title='Search Merchandise' location='merchandise' >
+        <SearchMerchandise token={this.token} />
+      </ModalButton>
+      }
     </SplitButton>
   </Fragment>
 )
@@ -44,7 +48,7 @@ const Header = ({ user }) => {
           { user &&
             <ButtonToolbar>
               <SplitButton id='Merchandise' bg='dark' variant='dark' href='#/' className='user-options' title={'Welcome, ' + user.email } >
-                <Dropdown.Item href="#change-password">Change Password</Dropdown.Item>
+                <Dropdown.Item className='change-pass-hover' href="#change-password">Change Password</Dropdown.Item>
                 <Dropdown.Item href="#sign-out">Sign Out</Dropdown.Item>
               </SplitButton>
             </ButtonToolbar>

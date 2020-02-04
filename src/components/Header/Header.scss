@@ -11,3 +11,22 @@
     white-space: normal;
   }
 }
+
+.change-pass-hover {
+  color: $darkgray;
+  text-shadow: 2px 2px $white;
+  white-space: normal;
+
+  &:active {
+    color: $darkgray;
+    text-shadow: 2px 2px $white;
+    white-space: normal;
+  }
+
+  &:visited {
+    background-color: $white;
+    color: $darkgray;
+    text-shadow: 2px 2px $white;
+    white-space: normal;
+  }
+}
