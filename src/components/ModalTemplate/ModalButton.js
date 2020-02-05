@@ -12,7 +12,9 @@ const ModalButton = (props) => {
 
   return (
     <Fragment>
-      <Button onClick={() => setModalShow(true)} variant='light' type='submit' className={classNameButton}>
+      <Button onClick={() => {
+        setModalShow(true)
+      }} variant='light' type='submit' className={classNameButton}>
         {title}
       </Button>
       <ModalTemplate

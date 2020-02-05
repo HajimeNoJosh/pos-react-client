@@ -11,6 +11,7 @@ import Home from '../Home/Home'
 import Footer from '../Footer/Footer'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import Merchandise from '../Merchandise/Merchandise'
+import MerchandiseItem from '../Merchandise/MerchandiseItem'
 import './App.scss'
 
 class App extends Component {
@@ -24,6 +25,8 @@ class App extends Component {
   }
 
   setUser = user => this.setState({ user })
+
+  setModalShowing = modalShowing => this.setState({ modalShowing })
 
   clearUser = () => this.setState({ user: null })
 
@@ -59,8 +62,11 @@ class App extends Component {
         <AuthenticatedRoute user={user} path='/change-password' render={() => (
           <ChangePassword alert={this.alert} user={user} />
         )} />
-        <AuthenticatedRoute user={user} path='/merchandise' render={() => (
+        <AuthenticatedRoute user={user} exact path='/merchandise' render={() => (
           <Merchandise alert={this.alert} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} exact path='/item/:id/:name' render={() => (
+          <MerchandiseItem alert={this.alert} user={user} />
         )} />
         <Footer />
       </div>

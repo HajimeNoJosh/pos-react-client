@@ -4,7 +4,7 @@ import { Modal, Button } from 'react-bootstrap'
 
 const ModalTemplate = (props) => {
   return (
-    <div className='modal'>
+    <div className={'modal'}>
       <Modal
         {...props}
         size="lg"
