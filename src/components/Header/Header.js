@@ -5,27 +5,8 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import SplitButton from 'react-bootstrap/SplitButton'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import './Header.scss'
-import ModalButton from '../ModalTemplate/ModalButton'
-import AddMerchandiseInput from '../Merchandise/AddMerchandiseInput'
-import SearchMerchandise from '../Merchandise/SearchMerchandise'
-
-// const AuthenticatedOptions = (setModalShow) => {
-//   setModalShow(true)
-//   return (
-//     <Fragment>
-//       <SplitButton id='Merchandise' href='#merchandise' bg='dark' variant='dark' title='Merchandise' className='user-options' >
-//         { <ModalButton setModalShow={setModalShow} modaltitle='Add Merchandise' classNameButton='dropdown-item' title='Add Merchandise' location='merchandise'>
-//           <AddMerchandiseInput token={this.token} />
-//         </ModalButton>
-//         }
-//         { <ModalButton setModalShow={setModalShow} modaltitle='Search Merchandise' classNameButton='dropdown-item' title='Search Merchandise' location='merchandise' >
-//           <SearchMerchandise token={this.token} />
-//         </ModalButton>
-//         }
-//       </SplitButton>
-//     </Fragment>
-//   )
-// }
+import SearchButton from '../Merchandise/SearchButton'
+import AddButton from '../Merchandise/AddButton'
 
 const unauthenticatedOptions = (
   <Fragment>
@@ -58,13 +39,11 @@ const Header = ({ user }) => {
           }
           { user ? (
             <SplitButton id='Merchandise' href='#merchandise' bg='dark' variant='dark' title='Merchandise' className='user-options' >
-              { <ModalButton modaltitle='Add Merchandise' classNameButton='dropdown-item' title='Add Merchandise' location='merchandise'>
-                <AddMerchandiseInput token={this.token} />
-              </ModalButton>
+              { <AddButton modaltitle='Add Merchandise' classNameButton='dropdown-item' title='Add Merchandise' location='merchandise' >
+              </AddButton>
               }
-              { <ModalButton modaltitle='Search Merchandise' classNameButton='dropdown-item' title='Search Merchandise' location='merchandise' >
-                <SearchMerchandise token={this.token} />
-              </ModalButton>
+              { <SearchButton modaltitle='Search Merchandise' classNameButton='dropdown-item' title='Search Merchandise' location='merchandise' >
+              </SearchButton>
               }
             </SplitButton>
           ) : unauthenticatedOptions }

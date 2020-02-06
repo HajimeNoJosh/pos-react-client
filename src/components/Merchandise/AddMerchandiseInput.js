@@ -4,9 +4,12 @@ import Button from 'react-bootstrap/Button'
 import './Merchandise.scss'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
+import { Redirect } from 'react-router-dom'
 
 const AddMerchandise = (props) => {
   const [merchandise, setMerchandise] = useState({ })
+  const [added, setAdded] = useState(false)
+
   const handleSubmit = event => {
     event.preventDefault()
     axios({
@@ -18,7 +21,13 @@ const AddMerchandise = (props) => {
       },
       data: { merchandise }
     })
-      .then()
+      .then(props.alert({
+        heading: 'You added an item',
+        message: `An item named ${merchandise.name} has been added`,
+        variant: 'success'
+
+      }))
+      .then(setAdded(true))
       .catch(console.error)
   }
 
@@ -27,8 +36,14 @@ const AddMerchandise = (props) => {
     setMerchandise(data => ({ ...data, [event.target.name]: event.target.value }))
   }
 
+  if (added) {
+    return <Redirect to={
+      { pathname: '/merchandise', state: { msg: 'Merchandise succesfully added!' } }
+    } />
+  }
+
   return (
-    <div className="row">
+    <div className="row my-4">
       <div className="mx-auto">
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="addMerchandise">

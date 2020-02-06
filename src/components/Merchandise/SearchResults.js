@@ -9,7 +9,19 @@ const SearchResults = (props) => {
   if (results) {
     if (results.merchandises) {
       resultsJsx = results.merchandises.map(result => (
-        <Link className={'modal-title results'} to={'/item/' + result.id + '/' + result.name} key={result.id}>{result.name}</Link>
+        <div className='container' key={result.id}>
+          <div className='row'>
+            <Link to={'/item/' + result.id + '/' + result.name} className="col-sm-4 results">
+              {result.name}
+            </Link>
+            <span className="col-sm-4 results">
+              ${result.retail}
+            </span>
+            <span className="col-sm-4 results">
+              {result.quantity}
+            </span>
+          </div>
+        </div>
       ))
     } else {
       return <div className='modal-title results'>No Results Found</div>
@@ -18,6 +30,20 @@ const SearchResults = (props) => {
 
   return (
     <Fragment>
+      <div className='container'>
+        <div className='row'>
+          <div className="col-sm-4 results">
+              Name
+          </div>
+          <span className="col-sm-4 results">
+              Retail
+          </span>
+          <span className="col-sm-4 results">
+              Quantity
+          </span>
+        </div>
+      </div>
+
       {resultsJsx}
     </Fragment>
   )

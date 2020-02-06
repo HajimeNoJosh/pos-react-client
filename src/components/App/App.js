@@ -12,6 +12,9 @@ import Footer from '../Footer/Footer'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import Merchandise from '../Merchandise/Merchandise'
 import MerchandiseItem from '../Merchandise/MerchandiseItem'
+import SearchMerchandise from '../Merchandise/SearchMerchandise'
+import EditMerchandiseInput from '../Merchandise/EditMerchandiseInput'
+import AddMerchandiseInput from '../Merchandise/AddMerchandiseInput'
 import './App.scss'
 
 class App extends Component {
@@ -67,6 +70,15 @@ class App extends Component {
         )} />
         <AuthenticatedRoute user={user} exact path='/item/:id/:name' render={() => (
           <MerchandiseItem alert={this.alert} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} exact path='/merchandise/search' render={() => (
+          <SearchMerchandise alert={this.alert} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} exact path='/edit/:id/:name' render={() => (
+          <EditMerchandiseInput alert={this.alert} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} exact path='/add' render={() => (
+          <AddMerchandiseInput alert={this.alert} user={user} />
         )} />
         <Footer />
       </div>

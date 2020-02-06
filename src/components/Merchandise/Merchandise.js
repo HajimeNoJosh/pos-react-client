@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
-import ModalButton from '../ModalTemplate/ModalButton'
-import AddMerchandiseInput from './AddMerchandiseInput'
-import SearchMerchandise from './SearchMerchandise'
 // import axios from 'axios'
+import { Link } from 'react-router-dom'
+import '../ModalTemplate/Modal.scss'
 
 const Merchandise = (props) => {
   return (
@@ -10,16 +9,14 @@ const Merchandise = (props) => {
       <main className="container">
         <div className='container'>
           <div className='row'>
-            { <ModalButton modaltitle='Add Merchandise' classNameButton='button' title='Add Merchandise' location='merchandise'>
-              <AddMerchandiseInput token={props.user.token} />
-            </ModalButton>
-            }
+            <Link to='/add' variant='dark' type='submit' className='button'>
+            Add Merchandise
+            </Link>
           </div>
           <div className='row'>
-            { <ModalButton modaltitle='Search Merchandise' classNameButton='button' title='Search Merchandise' location='merchandise' >
-              <SearchMerchandise token={props.user.token} />
-            </ModalButton>
-            }
+            <Link to='/merchandise/search' variant='dark' type='submit' className='button'>
+              Search Merchandise
+            </Link>
           </div>
         </div>
       </main>

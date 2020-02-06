@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './Merchandise.scss'
@@ -30,10 +30,10 @@ const SearchMerchandise = (props) => {
   }
 
   return (
-    <Fragment>
-      <div className="row">
-        <div className="mx-auto">
-          <Form onSubmit={handleSubmit}>
+    <div>
+      <div className="row my-4">
+        <div className="mx-auto searched-merchandise happy-center-add">
+          <Form onSubmit={handleSubmit} className='results'>
             <Form.Group controlId="searchMerchandise">
               <input
                 required
@@ -52,12 +52,13 @@ const SearchMerchandise = (props) => {
               </Button>
             </ Form.Group>
           </Form>
+          <div className='searched-merchandise'>
+            <SearchResults results={results} />
+          </div>
         </div>
       </div>
-      <div className='searched-merchandise'>
-        <SearchResults results={results} />
-      </div>
-    </Fragment>
+
+    </div>
   )
 }
 
